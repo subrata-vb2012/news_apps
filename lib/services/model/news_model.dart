@@ -1,17 +1,17 @@
-class NewsModel {
+class NewsResponse {
   String? status;
   int? totalResults;
-  List<Articles>? articles;
+  List<ArticleData>? articles;
 
-  NewsModel({this.status, this.totalResults, this.articles});
+  NewsResponse({this.status, this.totalResults, this.articles});
 
-  NewsModel.fromJson(Map<String, dynamic> json) {
+  NewsResponse.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
-      articles = <Articles>[];
+      articles = <ArticleData>[];
       json['articles'].forEach((v) {
-        articles!.add(Articles.fromJson(v));
+        articles!.add(ArticleData.fromJson(v));
       });
     }
   }
@@ -27,8 +27,8 @@ class NewsModel {
   }
 }
 
-class Articles {
-  Source? source;
+class ArticleData {
+  SourceData? source;
   String? author;
   String? title;
   String? description;
@@ -37,18 +37,19 @@ class Articles {
   String? publishedAt;
   String? content;
 
-  Articles(
-      {this.source,
-      this.author,
-      this.title,
-      this.description,
-      this.url,
-      this.urlToImage,
-      this.publishedAt,
-      this.content});
+  ArticleData({
+    this.source,
+    this.author,
+    this.title,
+    this.description,
+    this.url,
+    this.urlToImage,
+    this.publishedAt,
+    this.content,
+  });
 
-  Articles.fromJson(Map<String, dynamic> json) {
-    source = json['source'] != null ? Source.fromJson(json['source']) : null;
+  ArticleData.fromJson(Map<String, dynamic> json) {
+    source = json['source'] != null ? SourceData.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];
     description = json['description'];
@@ -74,13 +75,13 @@ class Articles {
   }
 }
 
-class Source {
+class SourceData {
   String? id;
   String? name;
 
-  Source({this.id, this.name});
+  SourceData({this.id, this.name});
 
-  Source.fromJson(Map<String, dynamic> json) {
+  SourceData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
   }

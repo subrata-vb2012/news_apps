@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/infrastructure/app_const/app_color_const.dart';
 
 class SwipeBackground extends StatelessWidget {
-  const SwipeBackground({
-    super.key,
-    required this.text,
-    required this.icon,
-    this.color,
-  });
+  const SwipeBackground({super.key, required this.text, required this.icon, this.color});
 
   final String text;
   final IconData icon;
@@ -18,10 +13,7 @@ class SwipeBackground extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(16),
-      ),
+      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(16)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,11 +23,7 @@ class SwipeBackground extends StatelessWidget {
           Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: AppColorConst.black, fontSize: 12, fontWeight: FontWeight.bold),
           ),
         ],
       ),

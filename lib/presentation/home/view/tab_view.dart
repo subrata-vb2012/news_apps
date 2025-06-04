@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TabView extends StatelessWidget {
-  const TabView({
-    super.key,
-    required this.icon,
-    required this.tabText,
-    this.iconColor,
-  });
+  const TabView({super.key, required this.icon, required this.tabText, this.iconColor});
 
   final IconData icon;
   final String tabText;
@@ -24,10 +19,7 @@ class TabView extends StatelessWidget {
             child: Icon(icon, size: 33, color: iconColor),
           ),
           SizedBox(width: 19),
-          Text(
-            tabText,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-          ),
+          Text(tabText, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
         ],
       ),
     );

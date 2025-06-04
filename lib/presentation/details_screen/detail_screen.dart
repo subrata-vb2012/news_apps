@@ -7,7 +7,7 @@ import 'package:news_app/infrastructure/app_const/app_string_const.dart';
 import 'package:news_app/services/model/news_model.dart';
 
 class DetailScreen extends StatelessWidget {
-  final Articles article;
+  final ArticleData article;
   final controller = Get.find<NewsController>();
 
   DetailScreen({super.key, required this.article});
@@ -28,10 +28,7 @@ class DetailScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      image: DecorationImage(
-                        image: NetworkImage(article.urlToImage!),
-                        fit: BoxFit.cover,
-                      ),
+                      image: DecorationImage(image: NetworkImage(article.urlToImage!), fit: BoxFit.cover),
                     ),
                   ),
                   controller.isFavorite(article)
@@ -39,21 +36,14 @@ class DetailScreen extends StatelessWidget {
                           alignment: Alignment.topRight,
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
-                            child: Icon(
-                              Icons.favorite,
-                              size: 30,
-                              color: AppColorConst.red,
-                            ),
+                            child: Icon(Icons.favorite, size: 30, color: AppColorConst.red),
                           ),
                         )
                       : SizedBox.shrink(),
                 ],
               ),
             SizedBox(height: 8),
-            Text(
-              article.title ?? "",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            ),
+            Text(article.title ?? "", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
             SizedBox(height: 14),
 
             Row(
@@ -62,21 +52,14 @@ class DetailScreen extends StatelessWidget {
                 Icon(Icons.calendar_month_rounded, color: AppColorConst.grey),
                 Text(
                   article.publishedAt.toString().toGMT().toString(),
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: AppColorConst.grey.shade600,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  style: TextStyle(fontSize: 12, color: AppColorConst.grey, overflow: TextOverflow.ellipsis),
                 ),
               ],
             ),
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  article.content ?? article.description ?? "",
-                  style: TextStyle(fontSize: 15),
-                ),
+                child: Text(article.content ?? article.description ?? "", style: TextStyle(fontSize: 15)),
               ),
             ),
           ],

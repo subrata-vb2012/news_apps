@@ -4,9 +4,9 @@ import 'package:news_app/services/repository/news_repository.dart';
 class ApiHandler {
   final NewsRepository repo = NewsRepository();
 
-  Future<List<Articles>> fetchNewsArticles() async {
+  Future<NewsResponse> fetchNewsArticles() async {
     final response = await repo.getNews();
-    final newsModel = NewsModel.fromJson(response);
-    return newsModel.articles ?? [];
+    final newsModel = NewsResponse.fromJson(response);
+    return newsModel;
   }
 }

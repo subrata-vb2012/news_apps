@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news_app/presentation/tabs/tab_screen.dart';
+import 'package:news_app/presentation/home/home_screen.dart';
 import 'controller/news_controller.dart';
 
 void main() {
   runApp(const MyApp());
-  Get.put(NewsController());
+  Get.lazyPut(() => NewsController());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,11 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-      ),
-      home: TabScreen(),
+      title: 'News App',
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.white)),
+      home: HomeScreen(),
     );
   }
 }
