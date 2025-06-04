@@ -46,7 +46,6 @@ class NewsScreen extends StatelessWidget {
                     direction: DismissDirection.endToStart,
                     confirmDismiss: (direction) async {
                       controller.addToFavorites(article);
-
                       showRawSnackBar(context: context, title: AppStringConst.addedToFavScreen);
                       return false;
                     },

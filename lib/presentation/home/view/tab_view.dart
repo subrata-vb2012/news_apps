@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/infrastructure/theme/extension_theme.dart';
 
 class TabView extends StatelessWidget {
   const TabView({super.key, required this.icon, required this.tabText, this.iconColor});
@@ -19,7 +20,7 @@ class TabView extends StatelessWidget {
             child: Icon(icon, size: 33, color: iconColor),
           ),
           SizedBox(width: 19),
-          Text(tabText, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
+          Text(tabText, style: Theme.of(context).textTheme.headlineMedium?.bold.shadow),
         ],
       ),
     );
