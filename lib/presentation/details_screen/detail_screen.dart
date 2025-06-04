@@ -4,6 +4,7 @@ import 'package:news_app/controller/news_controller.dart';
 import 'package:news_app/infrastructure/app_const/app_color_const.dart';
 import 'package:news_app/infrastructure/extension/date_parse.dart';
 import 'package:news_app/infrastructure/app_const/app_string_const.dart';
+import 'package:news_app/infrastructure/theme/extension_theme.dart';
 import 'package:news_app/services/model/news_model.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -43,7 +44,7 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
             SizedBox(height: 8),
-            Text(article.title ?? "", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+            Text(article.title ?? "", style: Theme.of(context).textTheme.headlineSmall?.bold.black),
             SizedBox(height: 14),
 
             Row(
@@ -52,14 +53,17 @@ class DetailScreen extends StatelessWidget {
                 Icon(Icons.calendar_month_rounded, color: AppColorConst.grey),
                 Text(
                   article.publishedAt.toString().toGMT().toString(),
-                  style: TextStyle(fontSize: 12, color: AppColorConst.grey, overflow: TextOverflow.ellipsis),
+                  style: Theme.of(context).textTheme.bodySmall?.bold.grey,
                 ),
               ],
             ),
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(article.content ?? article.description ?? "", style: TextStyle(fontSize: 15)),
+                child: Text(
+                  article.content ?? article.description ?? "",
+                  style: Theme.of(context).textTheme.bodyLarge?.black,
+                ),
               ),
             ),
           ],

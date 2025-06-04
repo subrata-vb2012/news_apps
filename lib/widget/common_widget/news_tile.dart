@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/infrastructure/app_const/app_color_const.dart';
 import 'package:news_app/infrastructure/extension/date_parse.dart';
+import 'package:news_app/infrastructure/theme/extension_theme.dart';
 import 'package:news_app/services/model/news_model.dart';
 
 class NewsTile extends StatelessWidget {
@@ -36,14 +37,14 @@ class NewsTile extends StatelessWidget {
                       article.title ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: Theme.of(context).textTheme.titleMedium?.bold.shadow,
                     ),
                     SizedBox(height: 4),
                     Text(
                       article.description ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 13),
+                      style: Theme.of(context).textTheme.titleMedium?.regular.shadow,
                     ),
                     SizedBox(height: 6),
                     Row(
@@ -52,7 +53,7 @@ class NewsTile extends StatelessWidget {
                         SizedBox(width: 4),
                         Text(
                           article.publishedAt.toString().toGMT(),
-                          style: TextStyle(fontSize: 12, color: AppColorConst.grey),
+                          style: Theme.of(context).textTheme.bodySmall?.bold.grey,
                         ),
                       ],
                     ),

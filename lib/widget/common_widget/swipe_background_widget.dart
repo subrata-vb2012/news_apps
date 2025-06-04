@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/infrastructure/app_const/app_color_const.dart';
+import 'package:news_app/infrastructure/theme/extension_theme.dart';
 
 class SwipeBackground extends StatelessWidget {
   const SwipeBackground({super.key, required this.text, required this.icon, this.color});
@@ -13,6 +14,7 @@ class SwipeBackground extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.symmetric(horizontal: 16),
+      margin: EdgeInsets.all(12),
       decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(16)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -23,7 +25,7 @@ class SwipeBackground extends StatelessWidget {
           Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(color: AppColorConst.black, fontSize: 12, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodySmall?.regular.black,
           ),
         ],
       ),

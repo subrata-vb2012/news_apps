@@ -15,25 +15,12 @@ class HomeScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          shadowColor: AppColorConst.transparent,
-          elevation: 0,
-          backgroundColor: AppColorConst.white,
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(60),
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
               child: TabBar(
-                dividerColor: Colors.transparent,
-                indicatorAnimation: TabIndicatorAnimation.linear,
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: AppColorConst.lavender,
-                  boxShadow: [BoxShadow(color: AppColorConst.shadow, blurRadius: 4, offset: Offset(0, 2))],
-                ),
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.black,
-
                 tabs: [
                   TabView(icon: LucideIcons.list, tabText: AppStringConst.tab1),
                   TabView(icon: Icons.favorite, iconColor: AppColorConst.red, tabText: AppStringConst.tab2),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/infrastructure/theme/app_themes.dart';
 import 'package:news_app/presentation/home/home_screen.dart';
 import 'controller/news_controller.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'News App',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.white)),
+      theme:AppTheme.lightTheme(),
       home: HomeScreen(),
     );
   }
