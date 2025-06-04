@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:news_app/controller/news_controller.dart';
 import 'package:news_app/infrastructure/app_const/app_color_const.dart';
 import 'package:news_app/infrastructure/extension/date_parse.dart';
 import 'package:news_app/services/model/news_model.dart';
 
-
 class NewsTile extends StatelessWidget {
-  final Articles article;
-  final controller = Get.find<NewsController>();
+  final ArticleData article;
 
-  NewsTile({super.key, required this.article});
+  const NewsTile({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +25,7 @@ class NewsTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: article.urlToImage == null
                     ? SizedBox(width: 100, height: 110)
-                    : Image.network(
-                        article.urlToImage ?? '',
-                        width: 100,
-                        height: 110,
-                        fit: BoxFit.cover,
-                      ),
+                    : Image.network(article.urlToImage ?? '', width: 100, height: 110, fit: BoxFit.cover),
               ),
               SizedBox(width: 12),
               Expanded(
@@ -45,10 +36,7 @@ class NewsTile extends StatelessWidget {
                       article.title ?? '',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                     ),
                     SizedBox(height: 4),
                     Text(
@@ -60,18 +48,11 @@ class NewsTile extends StatelessWidget {
                     SizedBox(height: 6),
                     Row(
                       children: [
-                        Icon(
-                          Icons.calendar_month,
-                          color: AppColorConst.grey,
-                          size: 16,
-                        ),
+                        Icon(Icons.calendar_month, color: AppColorConst.grey, size: 16),
                         SizedBox(width: 4),
                         Text(
                           article.publishedAt.toString().toGMT(),
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: AppColorConst.grey,
-                          ),
+                          style: TextStyle(fontSize: 12, color: AppColorConst.grey),
                         ),
                       ],
                     ),
